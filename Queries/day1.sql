@@ -182,5 +182,15 @@ FROM EMPLOYEES
 WHERE FIRST_NAME LIKE 'A%';
 
 --Display all the first_name that end with letter A in employee table
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '%a';
+
+--Display all the first_name that contains letter A in employees tables
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '%a%';
+
+
 
 
