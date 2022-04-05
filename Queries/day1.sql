@@ -89,17 +89,98 @@ WHERE FIRST_NAME= 'David'OR SALARY= 4800;
 SELECT * FROM EMPLOYEES
 WHERE SALARY>5000 AND SALARY <12000;
 
+--Range checking is much simple in sql using
+--Between....And
+--IS same as columnValue >= lowerLimit And column value<= upperLimit
+--Above query can be much simpler and more readable as below
+SELECT * FROM  EMPLOYEES
+WHERE SALARY BETWEEN 5000 AND 12000;
+
 --Display the Employee that have JOB_ID of
 --AD_VP
 --AD_ASST
 --FI_ACCOUNT
 --AC_ACCOUNT
-SELECT * FROM EMPLOYEES
+SELECT FIRST_NAME,JOB_ID FROM EMPLOYEES
 WHERE JOB_ID ='AD_VP'
   OR JOB_ID='FI_ACCOUNT'
   OR JOB_ID='AD_ASST'
   OR JOB_ID='AC_ACCOUNT';
 
+--Using keyword IN for multiple possible value of same column in condition
+SELECT FIRST_NAME,JOB_ID FROM EMPLOYEES
+WHERE  JOB_ID IN ('AD_VP','FI_ACCOUNT','AD_ASST','AC_ACCOUNT');
 
+
+--HOW TO SAT NOT IN SQL
+-- for equality check !=  <>(diamond operator,)
+    --FIND OUT ALL REGIONS EXPECT THE REGION_ID OF 1
+SELECT * FROM REGIONS
+WHERE REGION_ID !=1;
+--WHERE REGION_ID <> 1;
+
+SELECT * FROM REGIONS
+WHERE REGION_NAME <> 'Americas';
+
+--FOR BETWEEN AND --> NOT BETWEEN ..AND
+--Display the Employee that DOES NOT make more than 5000 and less than 12000
+SELECT FIRST_NAME,SALARY
+FROM EMPLOYEES
+WHERE SALARY NOT BETWEEN 5000 AND 12000;
+
+--FOR IN ---> NOT IN
+--Display the Employee that have JOB_ID
+--IS NOT one of these
+--AD_VP
+--AD_ASST
+--FI_ACCOUNT
+--AC_ACCOUNT
+
+SELECT FIRST_NAME,JOB_ID
+FROM EMPLOYEES
+WHERE JOB_ID NOT IN ('AD_VP','AD_ASST','FI_ACCOUNT','AC_ACCOUNT');
+
+
+--HOW TO USE NULL IN CONDITION?
+-- For example:FIND OUT ALL DEPARTMENTS that DOES NOT have MANAGER_ID
+SELECT * FROM DEPARTMENTS
+WHERE MANAGER_ID IS NULL ;
+
+-- For example:FIND OUT ALL DEPARTMENTS that have MANAGER_ID
+SELECT * FROM DEPARTMENTS
+WHERE MANAGER_ID IS not NULL ;
+
+--Sorting the result in ascending(Low to high)
+--OR descending order(High to Low)
+--ORDER BY CLAUSE can be used to order the result of your query
+--It use either column name or column index
+--It must be the last part of the statement
+--ASC for (Low to High) by default
+--DESC(HIGH TO LOW)
+
+--Display Employee First_Name and Last_Name and Salary
+--Try to sort by below criteria separately
+--First_Name ASC(ASCENDING ORDER)
+--Salary DESC
+--Last_Name DESC
+SELECT FIRST_NAME,LAST_NAME,SALARY
+FROM EMPLOYEES
+--ORDER BY FIRST_NAME ASC;
+--ORDER BY SALARY DESC;
+--ORDER BY LAST_NAME DESC;
+ORDER BY 1 DESC; --This means sort the result by first column
+--SQL INDEX START WITH 1 NOT 0!
+
+--WHAT ABOUT THE PARTIAL SEARCH
+--WE USE LIKE AND % (WILD CARD)
+--% can represent 0 or more character of any kind
+-- _can represent exactly one character of any kind
+
+--Display all the first_name that start with letter A in employee table
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE 'A%';
+
+--Display all the first_name that end with letter A in employee table
 
 
