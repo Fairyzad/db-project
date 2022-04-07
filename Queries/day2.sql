@@ -98,6 +98,14 @@ SELECT FIRST_NAME,SALARY,
        SALARY/4 AS "Weekly_Salary"
 FROM EMPLOYEES;
 
+--in one shot!
+SELECT FIRST_NAME,SALARY,
+       SALARY + 5000 AS "Increased_Salary",
+       SALARY - 2000 AS "Decreased_Salary",
+       SALARY * 12 AS "Yearly_Salary",
+       SALARY/4 AS "Weekly_Salary"
+FROM EMPLOYEES;
+
 
 
 
