@@ -74,6 +74,30 @@ SELECT FIRST_NAME, LAST_NAME,
        FIRST_NAME|| ' '|| LAST_NAME AS "FULL_NAME"
 FROM EMPLOYEES;
 
+--ARITHMETIC OPERATION:+ - * /
+--Display employee name and salary
+-- And increased_salary after 5000$ raise
+
+SELECT FIRST_NAME,SALARY,
+       SALARY + 5000 AS "Increased_Salary"
+From EMPLOYEES;
+
+-- And decreased_salary after 2000$ cut
+SELECT FIRST_NAME,SALARY,
+       SALARY - 2000 AS "Decreased_Salary"
+FROM EMPLOYEES;
+
+--And yearly_salary --Multiply by 12
+
+SELECT FIRST_NAME,SALARY,
+       SALARY * 12 AS "Yearly_Salary"
+FROM EMPLOYEES;
+
+--And weekly_salary --Divide by 4
+SELECT FIRST_NAME,SALARY,
+       SALARY/4 AS "Weekly_Salary"
+FROM EMPLOYEES;
+
 
 
 
